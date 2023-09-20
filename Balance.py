@@ -35,7 +35,7 @@ class Balance(commands.Cog, View):
             months = ['янв.', 'фев.', 'мар.', 'апр.', 'май', 'июн.', 'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']
 
             # Добавление информации о транзакции в embed
-            description += f"<:dot2:1078804345119842464> {category} **[{date.day:02} {months[date.month - 1]}, {date.hour:02}:{date.minute:02}]**\nСумма: **{value}** <:1016719860547469323:1098025516059070485>\n\n"
+            description += f"<:dot:1113913924765618307> {category} **[{date.day:02} {months[date.month - 1]}, {date.hour:02}:{date.minute:02}]**\nСумма: **{value}** :candy:\n\n"
 
         embed.description = description
         embed.set_footer(text=f"Страница {page} из {total_pages}")
@@ -54,7 +54,7 @@ class Balance(commands.Cog, View):
 
         if member:
             embed = discord.Embed(title=f'Текущий баланс — {member.name}#{member.discriminator}', color=0x2f3136)
-            embed.add_field(name="> Монеты <:1016719860547469323:1098025516059070485>", value=f"```{self.db.get_balance(member.id)}```")
+            embed.add_field(name="> Конфеты", value=f"`{self.db.get_balance(member.id)}`:candy:")
             embed.set_image(url="https://cdn.discordapp.com/attachments/992883178362642453/1029462389130792970/-1.png")
             embed.set_thumbnail(url=member.display_avatar.url)
 
@@ -85,7 +85,7 @@ class Balance(commands.Cog, View):
 
                                 if ctx.author.id == interaction.user.id:
                                     embed = discord.Embed(title=f'Текущий баланс — {ctx.author.name}#{ctx.author.discriminator}', color=0x2f3136)
-                                    embed.add_field(name="> Монеты <:1016719860547469323:1098025516059070485>", value=f"```{globalself.db.get_balance(ctx.author.id)}```")
+                                    embed.add_field(name="> Конфеты", value=f"`{globalself.db.get_balance(ctx.author.id)}`:candy:")
                                     embed.set_image(url="https://cdn.discordapp.com/attachments/992883178362642453/1029462389130792970/-1.png")
                                     embed.set_thumbnail(url=ctx.author.display_avatar.url)
 
@@ -135,7 +135,7 @@ class Balance(commands.Cog, View):
                         await ctx.delete()
 
             embed = discord.Embed(title=f'Текущий баланс — {ctx.author.name}#{ctx.author.discriminator}', color=0x2f3136)
-            embed.add_field(name="> Монеты <:1016719860547469323:1098025516059070485>", value=f"```{self.db.get_balance(ctx.author.id)}```")
+            embed.add_field(name="> Конфеты", value=f"`{self.db.get_balance(ctx.author.id)}`:candy:")
             embed.set_image(url="https://cdn.discordapp.com/attachments/992883178362642453/1029462389130792970/-1.png")
             embed.set_thumbnail(url=ctx.author.display_avatar.url)
         

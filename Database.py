@@ -65,6 +65,11 @@ class Database:
                 category TEXT NOT NULL, \
                 value INTEGER NOT NULL, \
                 time INTEGER NOT NULL)")
+            
+            self.cursor.execute("CREATE TABLE IF NOT EXISTS messages \
+                (member_id INTEGER PRIMARY KEY, \
+                count INTEGER NOT NULL DEFAULT 0)")
+
 
             self.cursor.execute("CREATE TABLE IF NOT EXISTS voiceactivity_all \
                 (member_id	INTEGER NOT NULL, \
@@ -72,6 +77,11 @@ class Database:
                 left_at	VARCHAR(255), \
                 total_hours INTEGER NOT NULL, \
                 total_minutes INTEGER NOT NULL)")
+            self.cursor.execute('''CREATE TABLE IF NOT EXISTS shop (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    owner INTEGER,
+                    role_id INTEGER
+                )''')
 
 
         except Error as e:

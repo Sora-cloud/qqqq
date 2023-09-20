@@ -37,7 +37,7 @@ class AdminPanel(commands.Cog, View):
         logger.info("/apanel - start")
 
     @commands.slash_command(name="apanel", description="Панель разработчика.", guild_ids=[guild_id_cmd])
-    @commands.is_owner()
+    @commands.has_any_role(1143564838916870180,1106929858833039591)
     async def casino(
         self,
         ctx: discord.ApplicationContext, 
